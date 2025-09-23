@@ -19,7 +19,7 @@ body {
 
 /* Global type scale for closer visual match */
 h1 { font-size: clamp(2.6rem, 5vw, 4.6rem); line-height: 1.15; margin-bottom: 1.5rem; }
-h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); line-height: 1.2; margin-bottom: 1.2rem; }
+h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); line-height: 1.2; margin-bottom: 1.2rem; color: white; }
 h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); line-height: 1.25; margin-bottom: 1rem; }
 p  { font-size: 1.05rem; margin-bottom: 1rem; }
 
@@ -310,6 +310,7 @@ section {
     border-radius: 18px; 
     padding: 2rem; 
     transition: all 0.3s ease;
+    color: white;
 }
 
 .feature-card:hover {
