@@ -1,118 +1,136 @@
 /* Program Structure Section Styles */
 .program {
-    background-color: #000;
-    color: #fff;
-    padding: 80px 0;
+    background-color: #0b0f14;
+    color: #ffffff;
+    padding: 96px 0;
 }
 
 .pill {
-    background-color: #ff5722;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 6px 16px;
-    border-radius: 20px;
-    display: inline-block;
-    margin-bottom: 16px;
+    background-color: #ff641a;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    padding: 8px 20px;
+    border-radius: 9999px;
+    display: table;
     text-align: center;
+    margin: 0 auto 20px;
 }
 
 .program .section-title {
-    font-size: 32px;
+    font-size: 40px;
     font-weight: 700;
-    margin-bottom: 16px;
+    line-height: 1.2;
+    color: #ffffff;
+    margin-bottom: 12px;
     text-align: center;
 }
 
 .program .section-sub {
     text-align: center;
-    max-width: 800px;
-    margin: 0 auto 50px;
+    max-width: 920px;
+    margin: 0 auto 48px;
     font-size: 16px;
     line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
 }
 
-.program-grid {
+.program .program-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
     margin-bottom: 40px;
+    align-items: stretch;
 }
 
-.program-card {
-    background-color: #0f1729;
-    border-radius: 8px;
-    padding: 30px;
+.program .program-card {
+    background-color: #0f172a;
+    border-radius: 12px;
+    padding: 36px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 320px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.program-icon {
-    background-color: #ff5722;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.program .program-icon {
+    background-color: #ff641a;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
 }
 
-.program-icon i {
-    color: #fff;
-    font-size: 20px;
+.program .program-icon i {
+    color: #ffffff;
+    font-size: 22px;
 }
 
-.program-card h4 {
-    font-size: 18px;
+.program .program-card h4 {
+    font-size: 16px;
     font-weight: 600;
-    margin-bottom: 10px;
+    color: #e5e7eb;
+    margin-bottom: 12px;
 }
 
-.program-card p {
+.program .program-card p {
     font-size: 14px;
-    color: #ccc;
+    color: #cbd5e1;
     line-height: 1.5;
+    margin: 0;
 }
 
 .program-investment {
-    background-color: #ff5722;
-    border-radius: 8px;
-    padding: 40px;
+    background: linear-gradient(180deg, #ff641a 0%, #e64812 100%);
+    border-radius: 12px;
+    padding: 56px 32px;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 56px;
+    box-shadow: 0 20px 40px rgba(230, 72, 18, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .program-investment h3 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
-    margin-bottom: 16px;
+    color: #ffffff;
+    margin-bottom: 12px;
 }
 
 .investment-amount {
-    font-size: 42px;
+    font-size: 48px;
     font-weight: 700;
+    line-height: 1.1;
     margin-bottom: 10px;
 }
 
 .program-investment p {
-    font-size: 16px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.95);
     margin-bottom: 20px;
 }
 
 .investment-details {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 28px;
     margin-top: 20px;
 }
 
 .investment-details span {
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.95);
+    gap: 8px;
 }
 
 .investment-details i {

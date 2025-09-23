@@ -1,0 +1,174 @@
+/* 45 Days Program Structure Section */
+.program {
+    background-color: #000;
+    color: #fff;
+    padding: 80px 0;
+}
+
+.program .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Pill styling */
+.program .pill {
+    background-color: #ff4500;
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Section title and subtitle */
+.program .section-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.program .section-sub {
+    font-size: 16px;
+    color: #aaa;
+    margin-bottom: 40px;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+/* Program grid */
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Program cards */
+.program-card {
+    background-color: #111827;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    height: 180px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.program-icon {
+    background-color: #ff4500;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.program-icon i {
+    color: #fff;
+    font-size: 18px;
+}
+
+.program-card h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.program-card p {
+    font-size: 14px;
+    color: #aaa;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Program investment section */
+.program-investment {
+    background-color: #ff4500;
+    border-radius: 8px;
+    padding: 30px;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.program-investment h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.investment-amount {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.program-investment p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.investment-details {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.investment-details span {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.investment-details i {
+    margin-right: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .program-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .program {
+        padding: 60px 0;
+    }
+    
+    .program .section-title {
+        font-size: 30px;
+    }
+    
+    .investment-details {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .program-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .program .section-title {
+        font-size: 26px;
+    }
+    
+    .program-card {
+        height: auto;
+    }
+}
