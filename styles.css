@@ -19,7 +19,7 @@ body {
 
 /* Global type scale for closer visual match */
 h1 { font-size: clamp(2.6rem, 5vw, 4.6rem); line-height: 1.15; margin-bottom: 1.5rem; }
-h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); line-height: 1.2; margin-bottom: 1.2rem; color: white; }
+h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); line-height: 1.2; margin-bottom: 1.2rem; color: orange; }
 h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); line-height: 1.25; margin-bottom: 1rem; }
 p  { font-size: 1.05rem; margin-bottom: 1rem; }
 
@@ -360,7 +360,7 @@ section {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 4rem;
-    background: #ff6512;
+    background: #fffffe;
     border-radius: 20px;
     padding: 3rem 2rem;
     box-shadow: 0 15px 30px rgba(255, 101, 18, 0.2);
