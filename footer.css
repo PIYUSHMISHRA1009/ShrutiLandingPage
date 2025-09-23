@@ -1,0 +1,163 @@
+/* Footer Styles */
+.footer {
+    padding: 3rem 0 2rem;
+}
+
+.footer.dark {
+    background: #0b0f14;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-col.right {
+    text-align: right;
+}
+
+.footer-name {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-lead {
+    color: #cbd5e1;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.quote {
+    font-style: italic;
+    color: #ff6512;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.icon-btns {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.icon-btn.linkedin {
+    background: #0077b5;
+}
+
+.icon-btn.mail {
+    background: #ff6512;
+}
+
+.icon-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contact-title {
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.contact-list {
+    list-style: none;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 0.8rem;
+}
+
+.contact-list li i {
+    margin-right: 0.8rem;
+    color: #ff6512;
+}
+
+.contact-list a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-list a:hover {
+    color: #ff6512;
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 1.5rem 0;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #ff6512;
+}
+
+.copyright {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.micro {
+    text-align: center;
+    color: #64748b;
+    font-size: 0.8rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-columns {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .footer-col.right {
+        text-align: left;
+    }
+    
+    .contact-list li {
+        justify-content: flex-start;
+    }
+    
+    .footer-nav {
+        flex-wrap: wrap;
+        gap: 1rem 2rem;
+    }
+}
