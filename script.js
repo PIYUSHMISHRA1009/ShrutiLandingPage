@@ -274,17 +274,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Localize currency (amounts marked with .price-amount[data-amount])
     try {
-        const userLocale = navigator.language || 'en-IN';
-        // Try to infer currency by locale, fallback INR
-        const currencyMap = { 'en-US':'USD', 'en-GB':'GBP', 'en-IN':'INR' };
-        const base = userLocale.split('-').slice(0,2).join('-');
-        const currency = currencyMap[base] || 'INR';
         document.querySelectorAll('.price-amount').forEach(el => {
-            const amt = Number(el.getAttribute('data-amount')||'7000');
-            const formatted = new Intl.NumberFormat(userLocale, { style:'currency', currency }).format(amt);
-            el.textContent = formatted;
+            const amt = Number(el.getAttribute('data-amount') || '7000');
+            // Force Indian Rupee format
+            const formatted = new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+                minimumFractionDigits: 0, // Optional: removes .00
+                maximumFractionDigits: 0
+            }).format(amt);
+            el.textContent = formatted; // Will display: ₹7,000
         });
-    } catch(e) {}
+    } catch (e) {
+        console.warn('Currency formatting failed:', e);
+    }
 
     // Localize date text elements marked with .date-text[data-date]
     try {
