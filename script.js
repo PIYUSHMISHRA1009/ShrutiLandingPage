@@ -231,3 +231,70 @@ document.addEventListener('DOMContentLoaded', () => {
         ], { duration: 300, easing: 'ease-out' });
     });
 })();
+
+// Lottie micro-animations for icons (progressive enhancement)
+(function attachLottie(){
+    const els = document.querySelectorAll('[data-lottie]');
+    if (!els.length) return;
+    const load = () => import('https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js')
+        .then(() => window.lottie);
+    load().then(lottie => {
+        els.forEach(el => {
+            const src = el.getAttribute('data-lottie');
+            const container = document.createElement('div');
+            container.style.width = '56px';
+            container.style.height = '56px';
+            container.style.pointerEvents = 'none';
+            el.innerHTML = '';
+            el.appendChild(container);
+            const anim = lottie.loadAnimation({
+                container,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: src
+            });
+            // pause until visible
+            const io = new IntersectionObserver((entries)=>{
+                entries.forEach(en=>{
+                    if(en.isIntersecting) anim.play(); else anim.pause();
+                })
+            }, {threshold: .1});
+            io.observe(container);
+        });
+    }).catch(()=>{});
+})();
+
+// Personalization: Time-of-day theme + Geo/time localization
+(function personalize(){
+    // Time-of-day accent on body via data-theme
+    const hour = new Date().getHours();
+    const theme = (hour >= 6 && hour < 18) ? 'day' : 'night';
+    document.documentElement.setAttribute('data-theme', theme);
+
+    // Localize currency (amounts marked with .price-amount[data-amount])
+    try {
+        const userLocale = navigator.language || 'en-IN';
+        // Try to infer currency by locale, fallback INR
+        const currencyMap = { 'en-US':'USD', 'en-GB':'GBP', 'en-IN':'INR' };
+        const base = userLocale.split('-').slice(0,2).join('-');
+        const currency = currencyMap[base] || 'INR';
+        document.querySelectorAll('.price-amount').forEach(el => {
+            const amt = Number(el.getAttribute('data-amount')||'7000');
+            const formatted = new Intl.NumberFormat(userLocale, { style:'currency', currency }).format(amt);
+            el.textContent = formatted;
+        });
+    } catch(e) {}
+
+    // Localize date text elements marked with .date-text[data-date]
+    try {
+        const userLocale = navigator.language || 'en-IN';
+        document.querySelectorAll('.date-text').forEach(el => {
+            const iso = el.getAttribute('data-date');
+            if (!iso) return;
+            const d = new Date(iso);
+            const formatted = new Intl.DateTimeFormat(userLocale, { day:'numeric', month:'long' }).format(d);
+            el.textContent = formatted;
+        });
+    } catch(e) {}
+})();
