@@ -158,10 +158,18 @@ revealElements.forEach(el => {
 
 console.log('🚀 Shurtis Landing Page loaded successfully!');
 
-// FAQ accordion
-document.querySelectorAll('.acc-item .acc-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const item = btn.parentElement;
-        item.classList.toggle('open');
+// FAQ accordion (single open at a time)
+document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const trigger = item.querySelector('.faq-question');
+        trigger.addEventListener('click', () => {
+            // close others
+            faqItems.forEach(i => {
+                if (i !== item) i.classList.remove('active');
+            });
+            // toggle current
+            item.classList.toggle('active');
+        });
     });
 });

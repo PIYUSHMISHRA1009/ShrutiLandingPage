@@ -912,7 +912,7 @@ section {
 
 .faq-item.active .faq-answer {
     padding: 0 2rem 1.5rem 3.5rem;
-    max-height: 200px;
+    max-height: 1000px;
 }
 
 .faq-answer p {
