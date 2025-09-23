@@ -40,21 +40,27 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Simple reveal-on-scroll
+// Staggered reveal-on-scroll with reduced-motion respect
 document.addEventListener('DOMContentLoaded', () => {
-    const elementsToAnimate = document.querySelectorAll('.section-title, .section-sub, .grid, .summary-card, .cta-panel');
-    elementsToAnimate.forEach(el => {
-        el.classList.add('fade-in');
-    });
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealEls = document.querySelectorAll('.section-title, .section-sub, .program-grid > *, .week-card, .resource-card, .support-card, .success-story, .program-card, .cta-panel');
+    if (prefersReduced) return;
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+                const delay = [...revealEls].indexOf(entry.target) * 12; // even faster stagger
+                entry.target.style.transition = `opacity .25s cubic-bezier(.25,.8,.25,1) ${delay}ms, transform .25s cubic-bezier(.25,.8,.25,1) ${delay}ms`;
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+                io.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
-    elementsToAnimate.forEach(el => observer.observe(el));
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(8px)';
+        io.observe(el);
+    });
 });
 
 // Removed number counters for simpler static impact stats
@@ -117,7 +123,7 @@ function debounce(func, wait) {
     };
 }
 
-// Apply debouncing to scroll events
+// Apply debouncing to scroll events + active nav highlighting
 const debouncedScrollHandler = debounce(() => {
     // Navbar background change
     const navbar = document.querySelector('.navbar');
@@ -134,6 +140,21 @@ const debouncedScrollHandler = debounce(() => {
         const rate = scrolled * -0.5;
         hero.style.transform = `translateY(${rate}px)`;
     }
+
+    // Active nav link
+    const sections = ['about','program','testimonials','faq','enroll'];
+    const links = document.querySelectorAll('.nav-link');
+    let current = null;
+    sections.forEach(id => {
+        const s = document.getElementById(id) || document.querySelector('.'+id);
+        if (!s) return;
+        const top = s.getBoundingClientRect().top;
+        if (top <= 120) current = id;
+    });
+    links.forEach(l => {
+        if (current && l.getAttribute('href') === `#${current}`) l.classList.add('active');
+        else l.classList.remove('active');
+    });
 }, 10);
 
 window.addEventListener('scroll', debouncedScrollHandler);
@@ -184,6 +205,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const { clientX: x, clientY: y } = e;
         dot.style.transform = `translate(${x}px, ${y}px)`;
         ring.style.transform = `translate(${x}px, ${y}px)`;
+        // spotlight position for buttons
+        const t = e.target.closest('.btn-primary');
+        if (t) {
+            t.classList.add('spotlight');
+            const r = t.getBoundingClientRect();
+            t.style.setProperty('--mx', `${((x - r.left)/r.width)*100}%`);
+            t.style.setProperty('--my', `${((y - r.top)/r.height)*100}%`);
+        }
     };
     window.addEventListener('mousemove', update);
 
@@ -192,5 +221,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll(interactive).forEach(el => {
         el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
         el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+
+    // click ripple on ring
+    window.addEventListener('click', () => {
+        ring.animate([
+            { transform: ring.style.transform + ' scale(1)', opacity: 1 },
+            { transform: ring.style.transform + ' scale(1.8)', opacity: 0 }
+        ], { duration: 300, easing: 'ease-out' });
     });
 })();
