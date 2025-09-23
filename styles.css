@@ -15,6 +15,7 @@ body {
     color: #e5e7eb;
     background: #0b0f14;
     overflow-x: hidden;
+    cursor: none; /* hide native cursor */
 }
 
 /* Global type scale for closer visual match */
@@ -1325,6 +1326,40 @@ section {
 /* Disclaimer Section */
 .disclaimer {
     padding: 4rem 0;
+}
+/* Custom Cursor */
+.cursor-dot, .cursor-ring {
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 2000;
+    transform: translate(-50%, -50%);
+    transition: transform 0.12s ease-out, opacity 0.2s ease;
+    mix-blend-mode: difference; /* stay visible on light/dark */
+}
+
+.cursor-dot {
+    width: 6px; height: 6px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
+}
+
+.cursor-ring {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(1px);
+}
+
+.cursor-hover .cursor-ring {
+    transform: translate(-50%, -50%) scale(1.4);
+    border-color: #ff6512;
+}
+
+.cursor-hover .cursor-dot {
+    transform: translate(-50%, -50%) scale(1.2);
+    background: #ff6512;
 }
 
 .disclaimer .note {

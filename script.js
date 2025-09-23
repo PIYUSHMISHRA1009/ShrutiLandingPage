@@ -173,3 +173,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Custom cursor logic
+(function customCursor(){
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    if (!dot || !ring) return;
+
+    const update = (e) => {
+        const { clientX: x, clientY: y } = e;
+        dot.style.transform = `translate(${x}px, ${y}px)`;
+        ring.style.transform = `translate(${x}px, ${y}px)`;
+    };
+    window.addEventListener('mousemove', update);
+
+    // Hover states on interactive elements
+    const interactive = 'a, button, .btn, .nav-link, .faq-question';
+    document.querySelectorAll(interactive).forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+})();
