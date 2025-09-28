@@ -142,7 +142,7 @@ const debouncedScrollHandler = debounce(() => {
     }
 
     // Active nav link
-    const sections = ['about','program','testimonials','faq','enroll'];
+    const sections = ['about','program','faq','enroll'];
     const links = document.querySelectorAll('.nav-link');
     let current = null;
     sections.forEach(id => {
