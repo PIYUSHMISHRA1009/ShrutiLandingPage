@@ -110,7 +110,7 @@ document.head.appendChild(focusStyle);
 
 // Removed lazy loading (not needed)
 
-// Performance optimization: Debounce scroll events
+// Performance optimisation: Debounce scroll events
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {

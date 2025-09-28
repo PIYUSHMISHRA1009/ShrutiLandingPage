@@ -900,7 +900,7 @@ section {
     .nav-logo h2 { font-size: 1.4rem; }
 }
 
-/* Tablet optimization: ensure hamburger aligns far right */
+/* Tablet optimisation: ensure hamburger aligns far right */
 @media (max-width: 992px) {
     .nav-container { position: relative; }
     .nav-toggle { 
@@ -1471,7 +1471,7 @@ section {
 
 .small-note { font-size: 0.9rem; }
 
-/* Small screens optimizations */
+/* Small screens optimisations */
 @media (max-width: 600px) {
     .container { padding: 0 1rem; }
     .nav-container { padding: 0 1rem; height: 70px; }
@@ -1481,6 +1481,11 @@ section {
     .section-sub { font-size: 1rem; margin-bottom: 2rem; }
 
     .hero { padding: 6rem 0 3rem; }
+    .hero-container { display: grid; justify-items: center; align-items: center; text-align: center; }
+    .hero-content { text-align: center; align-items: center; }
+    .hero-title { text-align: center; }
+    .hero-sub, .hero-fee, .hero-desc { text-align: center; margin-left: auto; margin-right: auto; }
+    .hero-buttons { justify-content: center; }
     .profile-img { width: min(70vw, 300px); height: min(70vw, 300px); }
     .profile-ring { width: min(74vw, 320px); height: min(74vw, 320px); }
 
@@ -1497,6 +1502,7 @@ section {
     .section-sub { font-size: 0.95rem; }
     .nav-logo h2 { font-size: 1.5rem; }
     .program .section-title { font-size: 32px; }
+    .hero-buttons { flex-direction: column; align-items: stretch; gap: 10px; }
 }
 .disclaimer .note {
     background: #ffffff;
