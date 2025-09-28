@@ -855,11 +855,13 @@ section {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 3rem;
+        justify-items: center; /* ensure grid children center horizontally */
+        padding: 0 1rem; /* reduce side padding so content sits visually centered */
     }
 
-    .hero-desc {
-        max-width: 100%;
-    }
+    .hero-content { justify-self: center; text-align: center; }
+    .hero-title, .hero-sub, .hero-fee, .hero-desc { text-align: center; margin-left: auto; margin-right: auto; }
+    .hero-desc { max-width: 100%; }
 
     .hero-buttons {
         justify-content: center;
