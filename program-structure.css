@@ -74,6 +74,23 @@
     font-size: 22px;
 }
 
+/* Responsive Program Structure */
+@media (max-width: 992px) {
+    .program .program-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .program .program-card { height: 260px; padding: 28px; }
+}
+
+@media (max-width: 768px) {
+    .program { padding: 72px 0; }
+    .program .section-title { font-size: 32px; }
+    .program .section-sub { font-size: 15px; margin-bottom: 32px; }
+    .program .program-grid { grid-template-columns: 1fr; gap: 16px; }
+    .program .program-card { height: auto; padding: 24px; }
+    .program .program-icon { width: 48px; height: 48px; }
+}
+
 .program .program-card h4 {
     font-size: 16px;
     font-weight: 600;

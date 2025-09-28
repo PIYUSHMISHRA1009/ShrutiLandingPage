@@ -893,6 +893,26 @@ section {
     .week-grid {
         grid-template-columns: 1fr;
     }
+
+    /* Prevent top-bar overlap: hide nav CTA on mobile, tighten logo */
+    .cta-small { display: none; }
+    .nav-container { grid-template-columns: auto 1fr auto; padding: 0 1rem; }
+    .nav-logo h2 { font-size: 1.4rem; }
+}
+
+/* Tablet optimization: ensure hamburger aligns far right */
+@media (max-width: 992px) {
+    .nav-container { position: relative; }
+    .nav-toggle { 
+        display: flex; 
+        position: absolute; 
+        right: 16px; 
+        top: 50%; 
+        transform: translateY(-50%);
+        margin: 0;
+    }
+    .cta-small { display: none; }
+    .nav-menu { justify-self: center; }
 }
 
 /* Animations */
@@ -1449,6 +1469,35 @@ section {
     * { animation: none !important; transition: none !important; }
 }
 
+.small-note { font-size: 0.9rem; }
+
+/* Small screens optimizations */
+@media (max-width: 600px) {
+    .container { padding: 0 1rem; }
+    .nav-container { padding: 0 1rem; height: 70px; }
+    section { padding: 3.5rem 0; }
+
+    .section-title { font-size: 2rem; }
+    .section-sub { font-size: 1rem; margin-bottom: 2rem; }
+
+    .hero { padding: 6rem 0 3rem; }
+    .profile-img { width: min(70vw, 300px); height: min(70vw, 300px); }
+    .profile-ring { width: min(74vw, 320px); height: min(74vw, 320px); }
+
+    .program-grid { grid-template-columns: 1fr; }
+    .week-grid { grid-template-columns: 1fr; }
+    .oo-grid { grid-template-columns: 1fr; }
+
+    .program-card, .week-card, .oo-card, .sunday-banner, .resources-banner { padding: 1.25rem; }
+    .enroll-btn { font-size: 1rem; padding: 0.9rem; }
+}
+
+@media (max-width: 420px) {
+    .section-title { font-size: 1.8rem; }
+    .section-sub { font-size: 0.95rem; }
+    .nav-logo h2 { font-size: 1.5rem; }
+    .program .section-title { font-size: 32px; }
+}
 .disclaimer .note {
     background: #ffffff;
     border: 1px solid rgba(15, 23, 42, 0.08);
