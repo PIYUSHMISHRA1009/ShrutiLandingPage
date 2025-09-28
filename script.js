@@ -300,4 +300,5 @@ document.addEventListener('DOMContentLoaded', () => {
             el.textContent = formatted;
         });
     } catch(e) {}
+
 })();
